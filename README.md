@@ -82,12 +82,14 @@ TypeError: EnumType.__call__() takes from 2 to 3 positional arguments but 4 were
 The model `foo.models.Foo` has a choice field named `type`. This field is
 later exposed to the graphql schema mutations as an enum using `foo.schema.FooSerializer`.
 When the `foo.schema.FooMutation` attempts to convert this enum to a graphene enum,
-it overrides the globals in `graphene.types.enum.EnumMeta.__new__` line 37:
+it overrides the globals in `graphene.types.enum.EnumMeta.__new__`
+[line 37](https://github.com/graphql-python/graphene/blob/93cb33d359bf2109d1b81eaeaf052cdb06f93f49/graphene/types/enum.py#L37):
 
 ```python
 globals()[name_] = obj.__enum__
 ```
-Then in `graphene.types.enum.EnumMeta.from_enum` line 74:
+Then in `graphene.types.enum.EnumMeta.from_enum`
+[line 74](https://github.com/graphql-python/graphene/blob/93cb33d359bf2109d1b81eaeaf052cdb06f93f49/graphene/types/enum.py#L74):
 
 ```python
 meta_class = type("Meta", (object,), meta_dict)
