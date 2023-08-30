@@ -3,6 +3,7 @@
 1. Create a virtualenv (`python -m venv venv`)
 2. Activate the virtualenv (`source venv/bin/activate` or `venv\Scripts\activate`)
 3. Install requirements (`pip install -r requirements.txt`)
+3. Run migrations (`python manage.py migrate`)
 4. Run the server (`python manage.py runserver`)
 5. Go to graphql endpoint (http://127.0.0.1:8000/graphql/)
 
